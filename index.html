@@ -1,0 +1,67 @@
+<html>
+<head>
+<script src="wysiwyg.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .editor-buttons{
+        background: white;
+        border: 0;
+        width: 40px;
+    }
+
+    .editor-buttons:hover{
+        background: rgb(241, 241, 241);
+        cursor: pointer;
+    }
+
+    .editor-buttons:focus{
+        outline: 1px solid lightgrey;
+    }
+
+    #wysiwyg_cp{
+        display: flex;
+        box-shadow: 2px 6px 9px 0px #9a9a9a;
+    width: 683px;
+    padding: 9px;
+    border: 1px solid lightgrey;
+    }
+
+    .fa-font-size{
+        font-size: 21px;
+        text-shadow: 1px 0px 1px #5a5a5a;
+    }
+</style>
+</head>
+<body onLoad="iFrameOn();">
+
+<form action="my_parse_file.php" name="myform" id="myform" method="post">
+<div id="wysiwyg_cp" >
+  <button type="button" class="editor-buttons" onClick="iBold()" value="B"> <i class="fa fa-font-size fa-bold"></i> </button>
+  <button type="button" class="editor-buttons" onClick="iUnderline()" value="U"> <i class="fa fa-font-size fa-underline"></i> </button>
+  <button type="button" class="editor-buttons" onClick="iItalic()" value="I"> <i class="fa fa-font-size fa-italic"></i> </button>
+  <button type="button" class="editor-buttons" onClick="iFontSize()" value="Text Size"> <i class="fa fa-font-size fa-font"></i> </button>
+  <button type="button" class="editor-buttons" onClick="iForeColor()" value="Text Color"> <i class="fa fa-font-size fa-paint-brush"></i> </button>
+  <button type="button" class="editor-buttons" onClick="iHorizontalRule()" value="HR"> HR </button>
+  <button type="button" class="editor-buttons" onClick="iUnorderedList()" value="UL"> <i class="fa fa-font-size fa-list-ul"></i> </button>
+  <button type="button" class="editor-buttons" onClick="iOrderedList()" value="OL"> <i class="fa fa-font-size fa-list-ol"></i> </button>
+  <button type="button" class="editor-buttons" onClick="iLink()" value="Link"> <i class="fa fa-font-size fa-link"></i> </button>
+  <button type="button" class="editor-buttons" onClick="iUnLink()" value="UnLink"> <i class="fa fa-font-size fa-unlink"></i> </button>
+  <button type="button" class="editor-buttons" onClick="embedded()" value="Embedded"> <i class="fa fa-font-size fa-play-circle"></i> </button>
+  <input type="file" onchange="previewFile()">
+<!-- <img src="" height="200" alt="Image preview..."> -->
+</div>
+<!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it -->
+<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea>
+<iframe name="richTextField" id="richTextField" style="border:#b9b9b9 1px solid; width:700px; height:300px; box-shadow: 3px 5px 6px 1px #a6a3a3;"></iframe>
+<!-- End replacing your normal textarea -->
+</p>
+<br /><br /><input type="button" name="myBtn"  value="Submit Data" onClick="javascript:submit_form();"/>
+</form>
+
+
+
+<script src="deps.js"></script>
+
+
+</body>
+</html>
